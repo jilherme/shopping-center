@@ -2,8 +2,8 @@
 Etapa 2. Associação entre classes
 Atualize as classes criadas anteriormente para contemplar o que é solicitado
 abaixo:
-• Uma Loja possui, além dos atributos já criados, um endereço (do :po
-Endereco) e uma data de fundação (do :po Data). Crie os métodos de acesso
+• Uma Loja possui, além dos atributos já criados, um endereço (do tipo
+Endereco) e uma data de fundação (do tipo Data). Crie os métodos de acesso
 destes atributos. Além disso, atualize os construtores para receberem o endereço
 e a data de fundação da loja.
 
@@ -12,13 +12,18 @@ public class Loja {
 
     private String nome;
     private int quantidadeFuncionarios;
-    private double salarioBaseFuncionario;  // Nome corrigido para manter consistência
+    private double salarioBaseFuncionario; // Nome corrigido para manter consistência
+    private Endereco endereco;
+    private Data dataFundacao;
 
     // Métodos Construtores
-    public Loja(String nome, int quantidadeFuncionarios, double salarioBaseFuncionario) {
+    public Loja(String nome, int quantidadeFuncionarios, double salarioBaseFuncionario, Endereco endereco,
+            Data dataFundacao) {
         this.nome = nome;
         this.quantidadeFuncionarios = quantidadeFuncionarios;
         this.salarioBaseFuncionario = salarioBaseFuncionario;
+        this.endereco = endereco;
+        this.dataFundacao = dataFundacao;
     }
 
     public Loja(String nome, int quantidadeFuncionarios) {
@@ -34,6 +39,22 @@ public class Loja {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
+
+    public Data getDataFundacao() {
+        return dataFundacao;
+    }
+
+    public void setDataFundacao(Data dataFundacao) {
+        this.dataFundacao = dataFundacao;
     }
 
     public int getQuantidadeFuncionarios() {

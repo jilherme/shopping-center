@@ -98,6 +98,8 @@ public class Loja {
                 + "nome='" + nome + '\''
                 + ", quantidadeFuncionarios=" + quantidadeFuncionarios
                 + ", salarioBaseFuncionario=" + salarioBaseFuncionario
+                + ", endereco=" + endereco
+                + ", dataFundacao=" + dataFundacao
                 + '}';
     }
 }

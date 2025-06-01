@@ -19,26 +19,32 @@ public class Principal {
         Loja loja = null;
         Produto produto = null;
         int opcao = 0;
-        int count = 0;
+        int objetosCriados = 0;
 
         /* Depois de criados os 2 objetos corretamente, seu programa deve:
 - imprimir a mensagem "PRODUTO VENCIDO" ou "PRODUTO NÃO VENCIDO" 
 - caso o produto criado esteja vencido na data de 20/10/2023 (utilizando o método criado anteriormente para isso)
 - imprimir as informações da loja criada */
 
-        while (opcao != 3) {
+        while (opcao != 3 && objetosCriados != 2) {
             System.out.println(MENU);
 
             opcao = scanner.nextInt(); 
             scanner.nextLine(); // Limpar o buffer do scanner
 
-            switch (opcao) {
-                case 1 -> loja = criarLoja(scanner);
-                case 2 -> produto = criarProduto(scanner);
+            switch (opcao ) {
+                case 1 -> {
+                    loja = criarLoja(scanner);
+                    objetosCriados++;
+                }
+                case 2 -> {
+                    produto = criarProduto(scanner); 
+                    objetosCriados++;
+                }
                 case 3 -> System.out.println("Saindo...");
                 default -> System.out.println("Opção inválida. Tente novamente.");
             }
-            count++;
+            
             
         }
         Data dataAtual = new Data(20, 10, 2023);

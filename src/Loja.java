@@ -1,36 +1,34 @@
-/* 
-Etapa 2. Associação entre classes
-Atualize as classes criadas anteriormente para contemplar o que é solicitado
-abaixo:
-• Uma Loja possui, além dos atributos já criados, um endereço (do tipo
-Endereco) e uma data de fundação (do tipo Data). Crie os métodos de acesso
-destes atributos. Além disso, atualize os construtores para receberem o endereço
-e a data de fundação da loja.
 
- */
+import java.util.Arrays;
+
 public class Loja {
 
     private String nome;
     private int quantidadeFuncionarios;
-    private double salarioBaseFuncionario; // Nome corrigido para manter consistência
+    private double salarioBaseFuncionario;
     private Endereco endereco;
     private Data dataFundacao;
+    private Produto[] estoqueProdutos;
 
     // Métodos Construtores
-    public Loja(String nome, int quantidadeFuncionarios, double salarioBaseFuncionario, Endereco endereco, Data dataFundacao) {
+    public Loja(String nome, int quantidadeFuncionarios, double salarioBaseFuncionario, Endereco endereco, Data dataFundacao, int quantidadeMaximaProdutos) {
         this.nome = nome;
         this.quantidadeFuncionarios = quantidadeFuncionarios;
         this.salarioBaseFuncionario = salarioBaseFuncionario;
         this.endereco = endereco;
         this.dataFundacao = dataFundacao;
+        this.estoqueProdutos = new Produto[quantidadeMaximaProdutos];
+
     }
 
-    public Loja(String nome, int quantidadeFuncionarios, Endereco endereco,  Data dataFundacao) {
+    public Loja(String nome, int quantidadeFuncionarios, Endereco endereco,  Data dataFundacao, int quantidadeMaximaProdutos) {
         this.nome = nome;
         this.quantidadeFuncionarios = quantidadeFuncionarios;
         this.salarioBaseFuncionario = -1;
         this.endereco = endereco;
         this.dataFundacao = dataFundacao;
+        this.estoqueProdutos = new Produto[quantidadeMaximaProdutos];
+
     }
 
     // Métodos de acesso
@@ -74,6 +72,14 @@ public class Loja {
         this.salarioBaseFuncionario = salarioBaseFuncionario;
     }
 
+    public Produto[] getEstoqueProdutos() {
+        return estoqueProdutos;
+    }
+
+    public void setEstoqueProdutos(Produto[] estoqueProdutos) {
+        this.estoqueProdutos = estoqueProdutos;
+    }
+
     public double gastosComSalario() {
         if (salarioBaseFuncionario < 0) {
             return -1; // Salário base não definido
@@ -92,6 +98,39 @@ public class Loja {
         }
     }
 
+    public void imprimeProdutos() {
+        if (estoqueProdutos.length == 0) {
+            System.out.println("Sem produtos cadastrados.");
+        } else {
+            for (Produto produto : estoqueProdutos) {
+                if (produto != null) {
+                    System.out.println(produto);
+                }
+            }
+        }
+    }
+
+    public boolean insereProduto(Produto produto) {
+        for (int i = 0; i < estoqueProdutos.length; i++) {
+            if (estoqueProdutos[i] == null) {
+                estoqueProdutos[i] = produto;
+                return true;
+            }
+        }
+        return false; // Estoque cheio
+    }
+
+    public boolean removeProduto(String nomeProduto) {
+        for (int i = 0; i< estoqueProdutos.length; i++) {
+            Produto produto = estoqueProdutos[i];
+            if (produto != null &&  produto.getNome().equals(nomeProduto)) {
+                estoqueProdutos[i] = null;
+                return true;
+            }
+        }
+        return false;
+    } 
+
     @Override
     public String toString() {
         return "Loja{"
@@ -100,6 +139,7 @@ public class Loja {
                 + ", salarioBaseFuncionario=" + salarioBaseFuncionario
                 + ", endereco=" + endereco
                 + ", dataFundacao=" + dataFundacao
+                + ", estoqueProduto=" + Arrays.toString(estoqueProdutos)
                 + '}';
     }
 }

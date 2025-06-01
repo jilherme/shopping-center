@@ -14,15 +14,15 @@ public class Bijuteria extends Loja {
     
     // Construtor com todos os parâmetros da Loja
     public Bijuteria(String nome, int quantidadeFuncionarios, double salarioBaseFuncionario, 
-                     Endereco endereco, Data dataFundacao, double metaVendas) {
-        super(nome, quantidadeFuncionarios, salarioBaseFuncionario, endereco, dataFundacao);
+                     Endereco endereco, Data dataFundacao, double metaVendas, int estoqueProdutos) {
+        super(nome, quantidadeFuncionarios, salarioBaseFuncionario, endereco, dataFundacao, quantidadeFuncionarios);
         this.metaVendas = metaVendas;
     }
-    
+
     // Construtor sem salário base (usa o segundo construtor da Loja)
     public Bijuteria(String nome, int quantidadeFuncionarios, Endereco endereco, 
-                     Data dataFundacao, double metaVendas) {
-        super(nome, quantidadeFuncionarios, endereco, dataFundacao);
+                     Data dataFundacao, double metaVendas, int estoqueProdutos) {
+        super(nome, quantidadeFuncionarios, endereco, dataFundacao, estoqueProdutos);
         this.metaVendas = metaVendas;
     }
     

@@ -15,15 +15,15 @@ public class Informatica extends Loja {
     
     // Construtor com todos os parâmetros da Loja
     public Informatica(String nome, int quantidadeFuncionarios, double salarioBaseFuncionario, 
-                       Endereco endereco, Data dataFundacao, double seguroEletronicos) {
-        super(nome, quantidadeFuncionarios, salarioBaseFuncionario, endereco, dataFundacao);
+                       Endereco endereco, Data dataFundacao, double seguroEletronicos, int estoqueProdutos) {
+        super(nome, quantidadeFuncionarios, salarioBaseFuncionario, endereco, dataFundacao, estoqueProdutos);
         this.seguroEletronicos = seguroEletronicos;
     }
     
     // Construtor sem salário base (usa o segundo construtor da Loja)
     public Informatica(String nome, int quantidadeFuncionarios, Endereco endereco, 
-                       Data dataFundacao, double seguroEletronicos) {
-        super(nome, quantidadeFuncionarios, endereco, dataFundacao);
+                       Data dataFundacao, double seguroEletronicos, int estoqueProdutos) {
+        super(nome, quantidadeFuncionarios, endereco, dataFundacao, estoqueProdutos);
         this.seguroEletronicos = seguroEletronicos;
     }
     

@@ -15,15 +15,15 @@ public class Alimentacao extends Loja {
     
     // Construtor com todos os parâmetros da Loja
     public Alimentacao(String nome, int quantidadeFuncionarios, double salarioBaseFuncionario, 
-                       Endereco endereco, Data dataFundacao, Data dataAlvara) {
-        super(nome, quantidadeFuncionarios, salarioBaseFuncionario, endereco, dataFundacao);
+                       Endereco endereco, Data dataFundacao, Data dataAlvara, int estoqueProdutos) {
+        super(nome, quantidadeFuncionarios, salarioBaseFuncionario, endereco, dataFundacao,  estoqueProdutos);
         this.dataAlvara = dataAlvara;
     }
     
     // Construtor sem salário base (usa o segundo construtor da Loja)
     public Alimentacao(String nome, int quantidadeFuncionarios, Endereco endereco, 
-                       Data dataFundacao, Data dataAlvara) {
-        super(nome, quantidadeFuncionarios, endereco, dataFundacao);
+                       Data dataFundacao, Data dataAlvara, int estoqueProdutos) {
+        super(nome, quantidadeFuncionarios, endereco, dataFundacao, estoqueProdutos);
         this.dataAlvara = dataAlvara;
     }
     

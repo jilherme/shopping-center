@@ -97,7 +97,7 @@ public class Principal {
         Data dataFundacao = new Data(dia, mes, ano);
         Endereco enderecoObj = new Endereco(nomeRua,cidade  ,estado ,pais ,cep ,numero ,complemento );
 
-        Loja loja = new Loja(nome, quantidadeFuncionarios, salarioBase, enderecoObj, dataFundacao);
+        Loja loja = new Loja(nome, quantidadeFuncionarios, salarioBase, enderecoObj, dataFundacao, quantidadeFuncionarios);
         System.out.println("Loja criada com sucesso: " + loja);
         return loja;
     }

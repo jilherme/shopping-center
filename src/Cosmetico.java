@@ -18,15 +18,15 @@ public class Cosmetico extends Loja {
     
     // Construtor com todos os parâmetros da Loja
     public Cosmetico(String nome, int quantidadeFuncionarios, double salarioBaseFuncionario, 
-                     Endereco endereco, Data dataFundacao, double taxaComercializacao) {
-        super(nome, quantidadeFuncionarios, salarioBaseFuncionario, endereco, dataFundacao);
+                     Endereco endereco, Data dataFundacao, double taxaComercializacao, int estoqueProdutos) {
+        super(nome, quantidadeFuncionarios, salarioBaseFuncionario, endereco, dataFundacao, quantidadeFuncionarios);
         this.taxaComercializacao = taxaComercializacao;
     }
     
     // Construtor sem salário base (usa o segundo construtor da Loja)
     public Cosmetico(String nome, int quantidadeFuncionarios, Endereco endereco, 
-                     Data dataFundacao, double taxaComercializacao) {
-        super(nome, quantidadeFuncionarios, endereco, dataFundacao);
+                     Data dataFundacao, double taxaComercializacao, int estoqueProdutos) {
+        super(nome, quantidadeFuncionarios, endereco, dataFundacao, quantidadeFuncionarios);
         this.taxaComercializacao = taxaComercializacao;
     }
     
